@@ -12,15 +12,15 @@ all: empty build run
 
 empty:
 	@echo
-	@echo making an empty tar file and registering it as a docker image named 'empty'
+	@echo "making an empty tar file and registering it as a docker image named 'empty'"
 	@echo
 	tar c --files-from /dev/null | docker import - empty
 
-a-tiny-app: a-tiny-app.go
-	go build -ldflags "-linkmode external -extldflags -static" a-tiny-app.go
+a-tiny-web-app: a-tiny-web-app.go
+	go build -ldflags "-linkmode external -extldflags -static" a-tiny-web-app.go
 
-build: a-tiny-app
-	docker build -t tiny-app .
+build: a-tiny-web-app
+	docker build -t tiny-web-app .
 
 run:
-	docker run --rm -it tiny-app 
+	docker run --rm -p 8181:8080 -it tiny-web-app 

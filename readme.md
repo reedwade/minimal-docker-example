@@ -5,6 +5,7 @@
 
 `example2-good` shows how you can work with nearly nothing. The executable has all the libraries it needs statically linked.
 
+`example3-awesome` shows an example of a little standalone web app with embedded content. From there it's easy to see how you could expand that into a small service that did more interesting things.
 
 # See also
 
